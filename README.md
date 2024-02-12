@@ -28,12 +28,15 @@ $$
 
 When the LoRA architecture is fine-tuned, the original weights $W$ are frozen and only $A,B$ are trained.
 
-<p align="center" style="display:block;float:none;margin-left:auto;margin-right:auto">
 <figure class="image text-center" align="center">
-  <img src="https://ar5iv.labs.arxiv.org/html/2106.09685/assets/x1.png" style="width:40%">
+  <div align="center">
+  <img src="https://ar5iv.labs.arxiv.org/html/2106.09685/assets/x1.png" style="width:30%">
+  </div>
+  <div align="center">
   <figcaption>Figure 1: The LoRA architecture, where a tuneable adapter (illustrated in orange), is added to pretrained weights.</figcaption>
+  </div>
 </figure>
-</p>
+<br>
 
 The principle benefit of LoRA is the reduced time and memory required to fine-tune when $r<< d_1,d_2$. In practice, training with LoRA uses very low-ranks (i.e. 4 to 32), which with Mistral 7B or Llama 2 7B for example, is drastically lower than their model dimension of $4096$. This useage is typical since increasing the rank of LoRA adapters further does not benefit performance but increases the computational requirements. As we will see in the next section, this limitation is imposed by the scaling factor $\gamma_r=\alpha /r$, which slows learning for ranks outside this very small rank regime, and better performance with higher ranks can be unlocked by substituting the correct adapter scaling factor with rsLoRA.
 
@@ -51,12 +54,15 @@ $$
 
 The work also shows experimentally that this setting of the scaling factor improves learning with increasing rank, even in the low rank regimes. These findings correct for the ongoing misconceptions that very low adapter ranks suffice for maximal performance, which has continued to foster a misconception that overestimates the extent to which the intrinsic dimensionality of fine-tuning a foundation model is low-dimensional.
 
-<p align="center" style="display:block;float:none;margin-left:auto;margin-right:auto">
 <figure class="image text-center" align="center">
-  <img src="https://i.postimg.cc/RVHtJ2pp/training-rclora-adam.png" style="width:60%">
+  <div align="center">
+  <img align="center" src="https://i.postimg.cc/RVHtJ2pp/training-rclora-adam.png" style="width:50%">
+  </div>
+  <div align="center">
   <figcaption>Figure 2: Fine-tuning curves of LoRA vs rsLoRA for Llama 7B on a random subset of the instruction tuning dataset OpenOrca.</figcaption>
+  </div>
 </figure>
-</p>
+<br>
 
 Of course, for those in the know about this work, one can just substitute the scaling factor in LoRA by substituting the hyperparameter $\alpha$ for each adapter appropriately with $\alpha'$ set as:
 
