@@ -30,7 +30,7 @@ When the LoRA architecture is fine-tuned, the original weights $W$ are frozen an
 
 <figure class="image text-center" align="center">
   <div align="center">
-  <img src="https://ar5iv.labs.arxiv.org/html/2106.09685/assets/x1.png" style="width:30%">
+  <img src="https://ar5iv.labs.arxiv.org/html/2106.09685/assets/x1.png" style="width:40%">
   </div>
   <div align="center">
   <figcaption>Figure 1: The LoRA architecture, where a tuneable adapter (illustrated in orange), is added to pretrained weights.</figcaption>
@@ -56,7 +56,7 @@ The work also shows experimentally that this setting of the scaling factor impro
 
 <figure class="image text-center" align="center">
   <div align="center">
-  <img align="center" src="https://i.postimg.cc/RVHtJ2pp/training-rclora-adam.png" style="width:50%">
+  <img align="center" src="https://i.postimg.cc/RVHtJ2pp/training-rclora-adam.png" style="width:60%">
   </div>
   <div align="center">
   <figcaption>Figure 2: Fine-tuning curves of LoRA vs rsLoRA for Llama 7B on a random subset of the instruction tuning dataset OpenOrca.</figcaption>
