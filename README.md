@@ -7,7 +7,7 @@
 
 As large language models (LLMs) have become increasingly compute and memory intensive, parameter-efficient fine-tuning (PEFT) methods are now a common strategy to fine-tune LLMs. One of the most popular PEFT methods, which many other PEFT methods are based off of, is the method of [Low-Rank Adaptation (LoRA)](https://huggingface.co/papers/2106.09685). LoRA works by fixing the original pre-trained model parameters, and adds trainable low-rank “adapters” to selected layers for fine-tuning. 
 
-One of the big findings of the original LoRA work was that fine-tuning with very low adapter rank (i.e. 4 to 32) could perform well, and that this performance did not improve further with increasing rank. However, it turns out that this saturation of performance with very low-rank, is not primarily due to a very low intrinsic-dimensionality of the learning manifold, but rather was since learning with LoRA outside of very low adapter ranks was unknowingly stunted.
+One of the important findings of the original LoRA work was that fine-tuning with very low adapter rank (i.e. 4 to 32) could perform well, and that this performance did not improve further with increasing rank. However, it turns out that this saturation of performance with very low rank is not primarily due to a very low intrinsic dimensionality of the learning manifold, but rather, it stems from the stunted learning of LoRA outside of very low adapter ranks.
 
 The method [Rank-Stabilized LoRA (rsLoRA)](https://huggingface.co/papers/2312.03732) proves that this limitation with LoRA existed, and that it can be corrected for by a simply dividing LoRA adapters by the square root of their rank.
 
